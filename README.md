@@ -7,6 +7,7 @@ Este repositório contém os arquivos e documentação de um projeto de análise
 - **Aquisição de dados no Raspberry Pi Pico W:** O código engloba a aquisição de dados de aceleração de um acelerômetro MPU6050, envio dos dados pela rede Wi-Fi local e exibição dos dados em uma tela OLED de 0.96".
 - **Aplicação Servidor:** Código executado na máquina local para receber e processar dados enviados pelo Raspberry Pi Pico, via Wi-Fi.
 - **Modelos Impressos em 3D:** Arquivos de design para uma case personalizada para abrigar o Raspberry Pi e os componentes associados.
+- **Streamlit:** Interface web interativa para visualização dos dados coletados, análise de vibração e informações adicionais sobre o desenvolvimento do projeto.
 
 ## Estrutura do Repositório
 ```
@@ -17,9 +18,10 @@ vibration_analysis/
 ├── server/                    # Aplicação servidor para recepção de dados
 │   ├── server.py              # Código principal do servidor
 │   └──  acceleration_data.csv # Dados coletados
-└── 3d_printed_models/    # Modelos 3D para a case
-    ├── case_bottom.step  # Arquivo STEP com a parte inferior da case
-    └── case_top.step     # Arquivo STEP com a parte superior da case
+├── 3d_printed_models/    # Modelos 3D para a case
+│   ├── case_bottom.step  # Arquivo STEP com a parte inferior da case
+│   └── case_top.step     # Arquivo STEP com a parte superior da case
+└── pages/  # Interface web interativa construída com Streamlit
 ```
 
 ## Detalhes dos Componentes
@@ -44,3 +46,9 @@ Contém os arquivos de design para a case impressa em 3D que acomoda o Raspberry
 
 - `case_bottom.step`: Arquivo STEP (Standard for the Exchange of Product Data) contendo o design da parte inferior da case.
 - `case_top.step`: Arquivo STEP contendo o design da parte superior da case.
+
+### Streamlit (`pages/`)
+
+Esta pasta contém os arquivos necessários para executar a interface web interativa construída com Streamlit.
+
+- `Introdução.py`: Código Python que define a estrutura e a lógica da aplicação Streamlit, incluindo a exibição dos dados coletados, a análise de vibração e outras informações relevantes sobre o projeto.
