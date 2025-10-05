@@ -1,54 +1,54 @@
-# Projeto de Análise de Vibrações 
+# Vibration Analysis Project
 
-## Visão Geral
+## Overview
 
-Este repositório contém os arquivos e documentação de um projeto de análise de vibrações desenvolvido por mim para fins didáticos. O projeto é dividido nos seguintes componentes:
+This repository contains the files and documentation for a vibration analysis project developed as an educational exercise. The project is divided into the following components:
 
-- **Aquisição de dados no Raspberry Pi Pico W:** O código engloba a aquisição de dados de aceleração de um acelerômetro MPU6050, envio dos dados pela rede Wi-Fi local e exibição dos dados em uma tela OLED de 0.96".
-- **Aplicação Servidor:** Código executado na máquina local para receber e processar dados enviados pelo Raspberry Pi Pico, via Wi-Fi.
-- **Modelos Impressos em 3D:** Arquivos de design para uma case personalizada para abrigar o Raspberry Pi e os componentes associados.
-- **Streamlit:** Interface web interativa para visualização dos dados coletados, análise de vibração e informações adicionais sobre o desenvolvimento do projeto.
+- **Data acquisition on Raspberry Pi Pico W:** Code to read acceleration data from an MPU6050 accelerometer, send the data over the local Wi-Fi network, and display information on a 0.96" OLED screen.
+- **Server application:** Code running on the local machine to receive and process data sent by the Raspberry Pi Pico.
+- **3D printed models:** CAD files for a custom enclosure to house the Pico and related electronics.
+- **Streamlit:** An interactive web interface to visualize collected data, perform vibration analysis, and present additional project information.
 
-## Estrutura do Repositório
+## Repository structure
 ```
 vibration_analysis/
-├── raspberry_pi_pico/  # Aquisição de dados no Raspberry Pi Pico W
-│   ├── lib/            # Bibliotecas usadas no projeto
-│   └── main.py         # Código principal executado no Raspberry Pi Pico W
-├── server/                    # Aplicação servidor para recepção de dados
-│   ├── server.py              # Código principal do servidor
-│   └──  acceleration_data.csv # Dados coletados
-├── 3d_printed_models/    # Modelos 3D para a case
-│   ├── case_bottom.step  # Arquivo STEP com a parte inferior da case
-│   └── case_top.step     # Arquivo STEP com a parte superior da case
-└── pages/  # Interface web interativa construída com Streamlit
+├── raspberry_pi_pico/  # Data acquisition code for Raspberry Pi Pico W
+│   ├── lib/            # Libraries used on the device
+│   └── main.py         # Main script running on the Pico
+├── server/             # Server application to receive data
+│   ├── server.py       # Main server code
+│   └── acceleration_data.csv # Collected data
+├── 3d_printed_models/  # 3D model files for the enclosure
+│   ├── case_bottom.step
+│   └── case_top.step
+└── pages/              # Streamlit pages for the web interface
 ```
 
-## Detalhes dos Componentes
+## Component details
 
 ### Raspberry Pi Pico W (`raspberry_pi_pico/`)
 
-Esta pasta contém todo o código necessário para rodar no Raspberry Pi Pico W. O objetivo principal é coletar dados de vibração usando o acelerômetro MPU6050 e enviá-los para o servidor.
+This folder contains the code to run on the Raspberry Pi Pico W. The main goal is to collect vibration data with the MPU6050 and send it to the server.
 
-- `lib/`: Contém bibliotecas adicionais utilizadas no projeto, como drivers para o MPU6050 e para a tela OLED.
-- `main.py`: É o script principal que controla a leitura dos dados do acelerômetro, a comunicação Wi-Fi para enviar os dados e a exibição das informações na tela OLED.
+- `lib/`: Additional libraries used on the Pico, such as drivers for the MPU6050 and the OLED display.
+- `main.py`: The main script that reads accelerometer data, connects to Wi-Fi to send data, and updates the OLED display.
 
-### Aplicação Servidor (`server/`)
+### Server application (`server/`)
 
-Responsável por receber os dados enviados pelo Raspberry Pi Pico W, processá-los e armazená-los.
+The server receives data sent by the Raspberry Pi Pico W, processes it, and stores it.
 
-- `server.py`: Implementa a lógica do servidor, incluindo a recepção de dados via Wi-Fi, o tratamento dos dados recebidos e o armazenamento em um arquivo.
-- `acceleration_data.csv`: Arquivo onde os dados de aceleração recebidos são armazenados em formato CSV (Comma Separated Values).
+- `server.py`: Implements the server logic, including receiving UDP packets, parsing the measurements, and appending them to a CSV file.
+- `acceleration_data.csv`: CSV file where received acceleration samples are stored.
 
-### Modelos Impressos em 3D (`3d_printed_models/`)
+### 3D printed models (`3d_printed_models/`)
 
-Contém os arquivos de design para a case impressa em 3D que acomoda o Raspberry Pi Pico W e seus componentes.
+Contains the CAD files for the 3D printed enclosure that houses the Pico W and the electronics.
 
-- `case_bottom.step`: Arquivo STEP (Standard for the Exchange of Product Data) contendo o design da parte inferior da case.
-- `case_top.step`: Arquivo STEP contendo o design da parte superior da case.
+- `case_bottom.step`: STEP file with the bottom part design.
+- `case_top.step`: STEP file with the top part design.
 
 ### Streamlit (`pages/`)
 
-Esta pasta contém os arquivos necessários para executar a interface web interativa construída com Streamlit.
+This folder contains the files needed to run the Streamlit web interface.
 
-- `Introdução.py`: Código Python que define a estrutura e a lógica da aplicação Streamlit, incluindo a exibição dos dados coletados, a análise de vibração e outras informações relevantes sobre o projeto.
+- `Introduction.py`: Streamlit page that provides an overview of the project, displays collected data, and explains the vibration analysis performed in the project.
